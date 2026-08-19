@@ -1,7 +1,0 @@
-body[data-auth-mode="signup"]{--blue:#16814b;--dark:#075c34}
-body[data-auth-mode="signup"] .login-titlebar{background:linear-gradient(#48b77b,#168d55 25%,#087442 72%,#07552f);text-shadow:1px 1px #06452a}
-body[data-auth-mode="signup"] .login-side{background:linear-gradient(145deg,#16754c,#57a76c)}
-body[data-auth-mode="signup"] .key-art{color:#fff;background:linear-gradient(145deg,#63c98a,#16804d);border-color:#075b35;text-shadow:1px 1px #075b35}
-body[data-auth-mode="signup"] .panel-heading{color:#167247}
-body[data-auth-mode="signup"] .xp-button.primary{color:#16482f;background:linear-gradient(#fff,#eaf9ef 50%,#b9e4c6);border-color:#2c7b50}
-body[data-auth-mode="signup"] .login-links button{color:#167247}

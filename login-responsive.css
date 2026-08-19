@@ -1,5 +1,6 @@
 html,body,button,input,select,textarea{font-family:Tahoma,"Segoe UI",sans-serif}
 button,input,select,textarea{font-size:13px}
+[hidden]{display:none!important}
 
 @media(max-width:700px){
   html,body{min-height:100%;overflow-x:hidden}
