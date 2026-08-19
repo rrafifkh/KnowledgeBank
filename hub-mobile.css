@@ -1,4 +1,6 @@
-html,body,button,input,select,textarea{font-family:Tahoma,"MS Sans Serif","Segoe UI",sans-serif!important}
+@import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap");
+html,body,button,input,select,textarea{font-family:Arimo,Tahoma,"MS Sans Serif","Segoe UI",sans-serif!important}
+html body *,html body *::before,html body *::after{font-family:Arimo,Tahoma,"MS Sans Serif","Segoe UI",sans-serif!important}
 
 @media(max-width:760px){
   html,body{width:100%;max-width:100%;overflow-x:hidden}

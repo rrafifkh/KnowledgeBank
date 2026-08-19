@@ -1,4 +1,6 @@
-html,body,button,input,select,textarea{font-family:Tahoma,"Segoe UI",sans-serif}
+@import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap");
+html,body,button,input,select,textarea{font-family:Arimo,Tahoma,"Segoe UI",sans-serif!important}
+html body *,html body *::before,html body *::after{font-family:Arimo,Tahoma,"Segoe UI",sans-serif!important}
 button,input,select,textarea{font-size:13px}
 [hidden]{display:none!important}
 

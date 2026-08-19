@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap");
 html,body,button,input,textarea,select,table,dialog{font-family:Arimo,Tahoma,"MS Sans Serif","Segoe UI",sans-serif!important}
+html body *,html body *::before,html body *::after{font-family:Arimo,Tahoma,"MS Sans Serif","Segoe UI",sans-serif!important}
 button,input,textarea,select{font-size:inherit}
 
 @media(max-width:700px){
