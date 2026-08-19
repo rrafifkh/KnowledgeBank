@@ -14,3 +14,12 @@ Klik `START LANGUAGE BANK.bat`. Launcher membuka server lokal di `http://127.0.0
 - Penyimpanan browser tetap digunakan sebagai fallback offline.
 
 Data lokal dan cloud digabung berdasarkan identitas item saat sinkronisasi. Impor maupun sinkronisasi tidak menghapus koleksi yang sudah ada.
+
+### Menggunakan sinkronisasi
+
+1. Buka Bank Hub dan pilih **Masuk cloud**.
+2. Daftar atau masuk menggunakan email dan password.
+3. Tekan **Sinkronkan**. Data lokal dan cloud akan digabung.
+4. Setelah sinkronisasi awal, perubahan berikutnya dikirim otomatis ketika akun cloud aktif.
+
+Publishable key Supabase di frontend memang bersifat publik. Keamanan data diterapkan oleh autentikasi dan Row Level Security pada tabel `bank_snapshots`; service-role key tidak disimpan di proyek ini.

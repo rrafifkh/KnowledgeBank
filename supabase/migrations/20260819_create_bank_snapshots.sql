@@ -24,5 +24,3 @@ with check ((select auth.uid()) = user_id);
 create policy "Users can delete their own bank snapshots"
 on public.bank_snapshots for delete to authenticated
 using ((select auth.uid()) = user_id);
-
-create index if not exists bank_snapshots_updated_at_idx on public.bank_snapshots (updated_at desc);
