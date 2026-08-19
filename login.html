@@ -7,6 +7,7 @@
   <title>Masuk — KnowledgeBank</title>
   <script>if(location.protocol!=='file:')document.write('<base href="/">');</script>
   <link rel="stylesheet" href="login.css?v=1">
+  <link rel="stylesheet" href="auth-modes.css?v=1">
 </head>
 <body>
   <main class="login-desktop">
@@ -14,14 +15,14 @@
       <header class="login-titlebar"><span class="login-icon">K</span><strong>KnowledgeBank</strong><span class="window-controls" aria-hidden="true">_ □ ×</span></header>
       <div class="login-body">
         <aside class="login-side">
-          <div class="key-art" aria-hidden="true">★</div>
+          <div class="key-art" id="authArt" aria-hidden="true">★</div>
           <h1 id="loginTitle">KnowledgeBank</h1>
-          <p>Simpan pengetahuanmu dan lanjutkan belajar dari perangkat mana pun.</p>
-          <ul><li>12 bank pengetahuan</li><li>Sinkronisasi aman</li><li>Data lokal tetap tersedia</li></ul>
+          <p id="authSideCopy">Simpan pengetahuanmu dan lanjutkan belajar dari perangkat mana pun.</p>
+          <ul id="authBenefits"><li>12 bank pengetahuan</li><li>Sinkronisasi aman</li><li>Data lokal tetap tersedia</li></ul>
         </aside>
         <section class="login-panel">
-          <div class="panel-heading"><span>Masuk ke akun</span><label><span class="sr-only">Bahasa</span><select id="loginLanguage"><option value="id">Indonesia</option><option value="en">English</option><option value="ja">日本語</option><option value="zh">中文</option></select></label></div>
-          <p class="login-copy">Gunakan akun Supabase untuk membuka dan menyinkronkan seluruh koleksi.</p>
+          <div class="panel-heading"><span id="authHeading">Masuk ke akun</span><label><span class="sr-only">Bahasa</span><select id="loginLanguage"><option value="id">Indonesia</option><option value="en">English</option><option value="ja">日本語</option><option value="zh">中文</option></select></label></div>
+          <p class="login-copy" id="authCopy">Gunakan akun Supabase untuk membuka dan menyinkronkan seluruh koleksi.</p>
           <form id="loginForm" novalidate>
             <label>Email<input id="loginEmail" type="email" autocomplete="email" placeholder="nama@email.com" required></label>
             <label>Password<input id="loginPassword" type="password" minlength="6" autocomplete="current-password" placeholder="Minimal 6 karakter" required></label>
@@ -40,6 +41,6 @@
   <script src="supabase-config.js?v=1"></script>
   <script src="cloud-sync.js?v=2"></script>
   <script src="system-language.js?v=1"></script>
-  <script src="login.js?v=1"></script>
+  <script src="login.js?v=2"></script>
 </body>
 </html>
