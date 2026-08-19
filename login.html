@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Masuk ke KnowledgeBank untuk menyinkronkan koleksi belajar.">
+  <title>Masuk — KnowledgeBank</title>
+  <link rel="stylesheet" href="login.css?v=1">
+</head>
+<body>
+  <main class="login-desktop">
+    <section class="login-window" aria-labelledby="loginTitle">
+      <header class="login-titlebar"><span class="login-icon">K</span><strong>KnowledgeBank</strong><span class="window-controls" aria-hidden="true">_ □ ×</span></header>
+      <div class="login-body">
+        <aside class="login-side">
+          <div class="key-art" aria-hidden="true">★</div>
+          <h1 id="loginTitle">KnowledgeBank</h1>
+          <p>Simpan pengetahuanmu dan lanjutkan belajar dari perangkat mana pun.</p>
+          <ul><li>12 bank pengetahuan</li><li>Sinkronisasi aman</li><li>Data lokal tetap tersedia</li></ul>
+        </aside>
+        <section class="login-panel">
+          <div class="panel-heading"><span>Masuk ke akun</span><label><span class="sr-only">Bahasa</span><select id="loginLanguage"><option value="id">Indonesia</option><option value="en">English</option><option value="ja">日本語</option><option value="zh">中文</option></select></label></div>
+          <p class="login-copy">Gunakan akun Supabase untuk membuka dan menyinkronkan seluruh koleksi.</p>
+          <form id="loginForm" novalidate>
+            <label>Email<input id="loginEmail" type="email" autocomplete="email" placeholder="nama@email.com" required></label>
+            <label>Password<input id="loginPassword" type="password" minlength="6" autocomplete="current-password" placeholder="Minimal 6 karakter" required></label>
+            <label id="confirmField" hidden>Konfirmasi password<input id="confirmPassword" type="password" minlength="6" autocomplete="new-password" placeholder="Ulangi password"></label>
+            <div id="loginError" class="login-message error" role="alert"></div>
+            <div id="loginInfo" class="login-message info" role="status"></div>
+            <button class="xp-button primary wide" id="submitLogin" type="submit">Masuk</button>
+          </form>
+          <div class="login-links"><button id="toggleMode" type="button">Belum punya akun? Daftar</button><button id="localMode" type="button">Gunakan mode lokal</button></div>
+          <p class="security-note">Data cloud dilindungi autentikasi dan Row Level Security.</p>
+        </section>
+      </div>
+      <footer class="login-status"><span id="connectionStatus">Supabase siap</span><span>KnowledgeBank</span></footer>
+    </section>
+  </main>
+  <script src="supabase-config.js?v=1"></script>
+  <script src="cloud-sync.js?v=2"></script>
+  <script src="system-language.js?v=1"></script>
+  <script src="login.js?v=1"></script>
+</body>
+</html>

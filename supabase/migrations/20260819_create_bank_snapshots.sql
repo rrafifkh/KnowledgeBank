@@ -8,6 +8,10 @@ create table if not exists public.bank_snapshots (
 
 alter table public.bank_snapshots enable row level security;
 
+revoke all on table public.bank_snapshots from authenticated;
+grant select, insert, update, delete on table public.bank_snapshots to authenticated;
+revoke all on table public.bank_snapshots from anon;
+
 create policy "Users can read their own bank snapshots"
 on public.bank_snapshots for select to authenticated
 using ((select auth.uid()) = user_id);
