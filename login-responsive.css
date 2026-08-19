@@ -1,0 +1,39 @@
+html,body,button,input,select,textarea{font-family:Tahoma,"Segoe UI",sans-serif}
+button,input,select,textarea{font-size:13px}
+
+@media(max-width:700px){
+  html,body{min-height:100%;overflow-x:hidden}
+  body{background:#78afea}
+  .login-desktop{display:block;min-height:100dvh;padding:0}
+  .login-window{width:100%;min-height:100dvh;border-width:0;border-radius:0;box-shadow:none}
+  .login-titlebar{position:sticky;top:0;z-index:2;height:40px}
+  .login-body{display:block;min-height:calc(100dvh - 67px)}
+  .login-side{display:none}
+  .login-panel{min-height:calc(100dvh - 67px);padding:24px 18px 28px}
+  .panel-heading{gap:12px;font-size:19px}
+  .panel-heading select{max-width:118px;font-size:12px}
+  .login-copy{margin:16px 0 20px}
+  .login-panel form{gap:14px}
+  .login-panel input{width:100%;min-height:44px;font-size:16px}
+  .xp-button{min-height:44px;font-size:14px}
+  .login-links{flex-direction:column;align-items:stretch;gap:0;margin-top:18px;border:1px solid #ccd8e5}
+  .login-links button{min-height:43px;padding:10px;text-align:left;text-decoration:none;border-bottom:1px solid #ccd8e5}
+  .login-links button:last-child{border-bottom:0}
+  .security-note{margin-top:20px}
+  .login-status{position:relative;height:27px}
+}
+
+@media(max-width:380px){
+  .login-panel{padding-right:14px;padding-left:14px}
+  .panel-heading{align-items:flex-start;flex-direction:column}
+  .panel-heading select{max-width:none;width:100%}
+}
+
+@media(max-height:620px) and (orientation:landscape){
+  .login-window{min-height:100vh}
+  .login-panel{min-height:auto;padding-top:18px;padding-bottom:18px}
+  .login-copy{margin:10px 0 12px}
+  .login-panel form{gap:9px}
+  .login-panel input,.xp-button{min-height:38px}
+  .security-note{margin-top:12px}
+}
