@@ -1,0 +1,32 @@
+html,body,button,input,textarea,select,table,dialog{font-family:Tahoma,"MS Sans Serif","Segoe UI",sans-serif!important}
+button,input,textarea,select{font-size:inherit}
+
+@media(max-width:700px){
+  html,body{width:100%;max-width:100%;overflow-x:hidden}
+  body{font-size:13px}
+  .app-shell{width:100%;min-height:100dvh;margin:0;border-radius:0}
+  .topbar{display:flex;height:auto!important;min-height:0;flex-wrap:wrap;padding:4px!important;gap:4px}
+  .brand{min-width:0;flex:1;padding:2px 5px;font-size:15px;line-height:1.15}
+  .brand-mark{width:31px;height:31px;flex:0 0 31px}
+  .header-actions{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));width:100%;gap:3px!important}
+  .topbar .button,.header-actions .button{display:flex;min-width:0;min-height:38px;padding:4px 3px!important;align-items:center;justify-content:center;white-space:normal;text-align:center;font-size:11px!important;line-height:1.15}
+  .stats{min-height:58px;padding:7px 10px}
+  .stats>div{min-width:90px;padding:0 10px}
+  main{min-width:0}
+  .collection-section,.content-section,.bank-content{padding-right:8px!important;padding-left:8px!important}
+  .section-heading{margin-top:8px;padding:9px 10px;font-size:16px}
+  .toolbar{grid-template-columns:1fr!important;gap:7px!important}
+  .search-box,input[type="search"],.toolbar select{width:100%;min-height:42px;font-size:14px}
+  .table-scroll{width:100%;max-width:100%;overflow-x:auto!important;overflow-y:visible;-webkit-overflow-scrolling:touch;border-right:1px solid #7f9db9}
+  .word-table{width:820px!important;min-width:820px!important;table-layout:fixed;font-size:12px}
+  .word-table th,.word-table td{padding:9px 8px;line-height:1.35}
+  .word-table th{white-space:nowrap}
+  dialog{max-width:calc(100vw - 12px)!important;max-height:calc(100dvh - 12px)!important;margin:auto}
+  dialog form{max-height:calc(100dvh - 18px);overflow-y:auto}
+}
+
+@media(max-width:390px){
+  .header-actions{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .topbar .button,.header-actions .button{min-height:36px}
+  .word-table{font-size:11px}
+}
