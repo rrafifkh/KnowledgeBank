@@ -1,0 +1,6 @@
+.language-bank-server.pid
+language-bank-backup-*.json
+recovery/
+.vercel/
+*.log
+__pycache__/

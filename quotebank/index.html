@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Quote Bank — simpan dan baca kembali kutipan pilihan.">
+  <title>Quote Bank</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-window">
+    <header class="titlebar">
+      <a class="brand" href="../index.html"><span class="app-icon">Q</span><strong>Quote Bank</strong></a>
+      <div class="header-actions"><a class="xp-button" href="../index.html">⌂ Hub</a><button class="xp-button primary" id="addStoryButton" type="button">＋ Tambah kutipan</button></div>
+    </header>
+    <div class="summary"><span><b id="storyCount">0</b> kutipan</span><span><b id="categoryCount">0</b> kategori</span></div>
+    <main>
+      <div class="section-title"><h1>Koleksi Kutipan</h1></div>
+      <div class="toolbar">
+        <label class="search"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Cari kutipan atau tokoh..." autocomplete="off"></label>
+        <select id="categoryFilter"><option value="">Semua kategori</option></select>
+        <select id="sortSelect"><option value="newest">Terbaru</option><option value="oldest">Terlama</option><option value="az">A–Z</option></select>
+        <button class="xp-button" id="exportButton" type="button">Ekspor</button>
+        <button class="xp-button" id="importButton" type="button">Impor</button>
+        <input id="importInput" type="file" accept="application/json,.json" hidden>
+      </div>
+      <section id="storyGrid" class="story-grid" aria-live="polite"></section>
+      <section id="emptyState" class="empty-state" hidden><div>❝</div><h2>Belum ada kutipan</h2><p>Tambahkan kutipan pertama untuk memulai koleksi.</p></section>
+    </main>
+  </div>
+
+  <dialog id="formDialog">
+    <form id="storyForm" novalidate autocomplete="off">
+      <div class="dialog-title"><strong id="formTitle">Tambah kutipan</strong><button class="close" type="button" data-close="formDialog">×</button></div>
+      <input id="editId" type="hidden">
+      <label class="field"><span>Tokoh / sumber <b>*</b></span><input id="titleInput" maxlength="160" required placeholder="Contoh: Marcus Aurelius"><small id="titleError"></small></label>
+      <label class="field"><span>Kategori <i>opsional</i></span><input id="categoryInput" maxlength="60" list="categorySuggestions" autocomplete="off" placeholder="Contoh: Kehidupan"><datalist id="categorySuggestions"></datalist></label>
+      <label class="field"><span>Kutipan <b>*</b></span><textarea id="contentInput" rows="7" maxlength="10000" required placeholder="Tulis isi kutipan di sini..."></textarea><small id="contentError"></small></label>
+      <label class="field"><span>Catatan <i>opsional</i></span><textarea id="notesInput" rows="4" maxlength="10000" placeholder="Tulis konteks atau pemikiran pribadi..."></textarea></label>
+      <div class="dialog-actions"><button class="xp-button" type="button" data-close="formDialog">Batal</button><button class="xp-button primary" type="submit">Simpan kutipan</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="readerDialog" class="reader-dialog">
+    <article>
+      <div class="dialog-title"><strong>Quote Reader</strong><button class="close" type="button" data-close="readerDialog">×</button></div>
+      <div class="reader-body"><p id="readerCategory" class="category-label"></p><div id="readerContent" class="reader-content quote-content"></div><h2 id="readerTitle" class="quote-source"></h2><time id="readerDate"></time><div id="readerNotes" class="reader-notes"></div></div>
+      <div class="dialog-actions reader-actions"><button class="xp-button danger" id="deleteStoryButton" type="button">Hapus</button><button class="xp-button" id="editStoryButton" type="button">Edit</button><button class="xp-button primary" type="button" data-close="readerDialog">Tutup</button></div>
+    </article>
+  </dialog>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script src="../supabase-config.js?v=1"></script><script src="../cloud-sync.js?v=1"></script><script src="../system-language.js?v=1"></script>
+  <script src="script.js?v=1"></script>
+</body>
+</html>

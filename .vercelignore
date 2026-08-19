@@ -1,0 +1,13 @@
+.language-bank-server.pid
+language-bank-backup-*.json
+recovery/
+START LANGUAGE BANK.bat
+STOP LANGUAGE BANK.bat
+launcher.ps1
+stop-server.ps1
+server.py
+CARA MENJALANKAN.txt
+supabase/
+.git/
+*.log
+__pycache__/

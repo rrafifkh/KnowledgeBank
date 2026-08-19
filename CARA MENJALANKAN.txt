@@ -1,0 +1,24 @@
+KNOWLEDGE BANK - CARA MENJALANKAN
+================================
+
+1. Klik dua kali "START LANGUAGE BANK.bat".
+2. Launcher menunggu server siap, lalu browser terbuka otomatis ke http://127.0.0.1:8765/
+3. Gunakan START LANGUAGE BANK.bat setiap kali membuka aplikasi agar data selalu memakai penyimpanan yang sama.
+4. Tidak diperlukan ekstensi Live Server atau koneksi internet.
+5. Launcher aman diklik lagi; server kedua tidak akan dibuat.
+6. Klik "STOP LANGUAGE BANK.bat" jika ingin mematikan server tersembunyi.
+
+MEMINDAHKAN DATA LAMA DARI LIVE SERVER
+--------------------------------------
+
+1. Buka versi lama melalui Live Server.
+2. Masuk ke Statistik pada masing-masing bank dan pilih Ekspor data.
+3. Jalankan START LANGUAGE BANK.bat.
+4. Masuk ke bank yang sesuai, buka Statistik, lalu pilih Impor data.
+
+BACKUP SELURUH BANK
+-------------------
+
+- Di halaman Bank Hub, pilih Ekspor Semua untuk menyimpan satu file JSON.
+- Pilih Impor Semua untuk menggabungkan backup dengan data saat ini.
+- Data kosong dari backup diabaikan dan data lama tidak dihapus.

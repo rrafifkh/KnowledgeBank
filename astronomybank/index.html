@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Astronomy Bank — simpan dan pelajari istilah astronomi dengan spaced repetition.">
+  <title>Astronomy Bank</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="Kembali ke Bank Hub">
+        <span class="brand-mark">✦</span>
+        <span>Astronomy Bank</span>
+      </a>
+      <div class="header-actions">
+        <a class="button hub-button" href="../index.html">⌂ Hub</a>
+        <button class="button" id="openStatsButton" type="button">▥ Statistik</button>
+        <button class="button" id="startReviewButton" type="button">▶ Review <span id="dueBadge">0</span></button>
+        <button class="button primary" id="openFormButton" type="button"><span aria-hidden="true">＋</span> Tambah istilah</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="stats" id="bankStats" aria-label="Ringkasan koleksi">
+        <div><strong id="wordCount">0</strong><span>Istilah</span></div>
+        <div><strong id="dueCount">0</strong><span>Jatuh tempo</span></div>
+      </section>
+
+      <section class="library" id="libraryPage" aria-labelledby="libraryTitle">
+        <div class="section-heading">
+          <h1 id="libraryTitle">Istilah Astronomi</h1>
+        </div>
+
+        <div class="toolbar">
+          <label class="search-box">
+            <span class="search-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 21 21"></path></svg>
+            </span>
+            <span class="sr-only">Cari istilah atau definisi</span>
+            <input id="searchInput" type="search" placeholder="Cari istilah atau definisi..." autocomplete="off">
+          </label>
+          <label>
+            <span class="sr-only">Filter kategori</span>
+            <select id="categoryFilter"><option value="">Semua kategori</option></select>
+          </label>
+          <label>
+            <span class="sr-only">Urutkan</span>
+            <select id="sortSelect">
+              <option value="newest">Terbaru</option>
+              <option value="oldest">Terlama</option>
+              <option value="az">A–Z</option>
+              <option value="za">Z–A</option>
+            </select>
+          </label>
+        </div>
+
+        <div id="wordGrid" class="word-grid" aria-live="polite"></div>
+
+        <div id="emptyState" class="empty-state" hidden>
+          <div class="empty-icon" aria-hidden="true">Aa</div>
+          <h3 id="emptyTitle">Koleksimu masih kosong</h3>
+          <p id="emptyCopy">Mulai dari satu kata yang sudah kamu kuasai.</p>
+          <button class="button secondary" id="emptyAddButton" type="button">Tambah kata pertama</button>
+        </div>
+      </section>
+
+      <section class="statistics-page" id="statisticsPage" aria-labelledby="statisticsTitle" hidden>
+        <div class="xp-page-heading">
+          <div><p>Astronomy Bank</p><h1 id="statisticsTitle">Statistik Istilah Astronomi</h1></div>
+          <div class="data-actions"><button class="button exportDataButton" type="button">Ekspor data</button><button class="button importDataButton" type="button">Impor data</button><button class="button" id="backToBankButton" type="button">← Kembali</button></div>
+          <input class="importDataInput" type="file" accept="application/json,.json" hidden>
+        </div>
+        <div class="statistics-content">
+          <article class="total-panel">
+            <span>Total istilah</span>
+            <strong id="statisticsTotal">0</strong>
+            <small>istilah tersimpan</small>
+          </article>
+          <article class="daily-panel">
+            <div class="panel-title">Istilah astronomi ditambahkan per hari</div>
+            <div id="dailyChart" class="daily-chart"></div>
+            <div id="dailyEmpty" class="daily-empty" hidden>Belum ada data istilah astronomi.</div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="wordDialog">
+    <form id="wordForm" method="dialog" novalidate autocomplete="off">
+      <div class="dialog-heading">
+        <div>
+          <p class="eyebrow">Astronomy Bank</p>
+          <h2 id="dialogTitle">Tambah istilah</h2>
+        </div>
+        <button class="close-button" id="closeDialogButton" type="button" aria-label="Tutup">×</button>
+      </div>
+
+      <input id="editId" type="hidden">
+      <div class="form-grid">
+        <label class="field">
+          <span>Istilah astronomi <b>*</b></span>
+          <input id="wordInput" type="text" maxlength="100" placeholder="Contoh: Cognitive dissonance" required autofocus>
+          <small class="error" id="wordError"></small>
+        </label>
+        <label class="field full">
+          <span>Kategori <i>opsional</i></span>
+          <input id="categoryInput" type="text" list="categorySuggestions" maxlength="50" placeholder="Contoh: Tata Surya" autocomplete="off">
+          <datalist id="categorySuggestions"></datalist>
+          <small class="error" id="categoryError"></small>
+        </label>
+        <label class="field full">
+          <span>Definisi <b>*</b></span>
+          <textarea id="meaningInput" rows="3" maxlength="500" placeholder="Jelaskan definisi istilah astronomi" required></textarea>
+          <small class="error" id="meaningError"></small>
+        </label>
+        <label class="field full">
+          <span>Catatan <i>opsional</i></span>
+          <textarea id="notesInput" rows="2" maxlength="500" placeholder="Contoh kalimat, pelafalan, atau catatan lain"></textarea>
+        </label>
+      </div>
+      <div class="dialog-actions">
+        <button class="button ghost" id="cancelButton" type="button">Batal</button>
+        <button class="button primary" type="submit">Simpan istilah</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="deleteDialog" class="confirm-dialog">
+    <div>
+      <div class="empty-icon danger" aria-hidden="true">×</div>
+      <h2>Hapus istilah?</h2>
+      <p>Kata ini akan dihapus dari koleksimu dan tidak dapat dikembalikan.</p>
+      <div class="dialog-actions centered">
+        <button class="button ghost" id="cancelDeleteButton" type="button">Batal</button>
+        <button class="button danger-button" id="confirmDeleteButton" type="button">Ya, hapus</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="reviewDialog" class="review-dialog">
+    <div class="review-window">
+      <div class="review-titlebar">
+        <strong>Review Istilah Astronomi</strong>
+        <button class="close-button" id="closeReviewButton" type="button" aria-label="Tutup">×</button>
+      </div>
+      <div class="review-progress"><span id="reviewProgress">0 / 0</span><select id="reviewMode" aria-label="Mode review"><option value="flash">Kartu</option><option value="type">Ketik jawaban</option><option value="choice">Pilihan ganda</option><option value="mixed">Campuran</option></select></div>
+      <div class="review-card">
+        <p class="review-label" id="reviewPromptLabel">ISTILAH</p>
+        <h2 id="reviewWord"></h2>
+        <div id="typeAnswerArea" class="type-answer-area" hidden><input id="typedAnswer" type="text" autocomplete="off" placeholder="Ketik jawaban..."><button class="button" id="checkTypedButton" type="button">Cek jawaban</button></div>
+        <div id="choiceAnswerArea" class="choice-answer-area" hidden></div>
+        <div id="reviewAnswer" class="review-answer" hidden>
+          <div class="answer-rule"></div>
+          <p id="reviewCorrectWord" class="review-correct-word" hidden></p>
+          <p class="review-label">DEFINISI</p>
+          <p id="reviewMeaning" class="review-meaning"></p>
+          <p id="reviewNotes" class="review-notes"></p>
+        </div>
+      </div>
+      <div id="revealArea" class="review-controls">
+        <button class="button review-show" id="showAnswerButton" type="button">Tampilkan jawaban</button>
+      </div>
+      <div id="ratingArea" class="rating-grid" hidden>
+        <button class="button rating again" data-rating="again" type="button"><span>Ulangi</span><small id="againInterval">1 mnt</small></button>
+        <button class="button rating hard" data-rating="hard" type="button"><span>Sulit</span><small id="hardInterval">1 hari</small></button>
+        <button class="button rating good" data-rating="good" type="button"><span>Baik</span><small id="goodInterval">1 hari</small></button>
+        <button class="button rating easy" data-rating="easy" type="button"><span>Mudah</span><small id="easyInterval">4 hari</small></button>
+      </div>
+      <div id="reviewComplete" class="review-complete" hidden>
+        <div class="empty-icon">✓</div><h2>Review selesai</h2><p>Semua kartu yang jatuh tempo sudah dipelajari.</p>
+        <button class="button" id="finishReviewButton" type="button">Selesai</button>
+      </div>
+    </div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="../supabase-config.js?v=1"></script><script src="../cloud-sync.js?v=1"></script><script src="../system-language.js?v=1"></script>
+  <script src="script.js?v=1"></script>
+</body>
+</html>

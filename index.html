@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bank Hub — satu tempat untuk membuka seluruh koleksi belajar.">
+  <title>Bank Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="desktop">
+    <section class="window" aria-labelledby="pageTitle">
+      <header class="titlebar">
+        <div class="title"><span class="app-icon">B</span><strong>Bank Hub</strong></div>
+        <div class="window-buttons" aria-hidden="true"><span>─</span><span>□</span><span>×</span></div>
+      </header>
+
+      <div class="menubar"><span>File</span><span>View</span><span>Help</span><div class="hub-data-actions"><span id="cloudStatus" class="cloud-status">Mode lokal</span><button id="cloudAccountButton" type="button">Masuk cloud</button><button id="cloudSyncButton" type="button" hidden>Sinkronkan</button><label class="language-setting" title="Pengaturan bahasa"><span>Bahasa</span><select id="systemLanguageSelect" aria-label="Pengaturan bahasa"><option value="id">Indonesia</option><option value="en">English</option><option value="ja">日本語</option><option value="zh">中文</option></select></label><button id="exportAllButton" type="button">Ekspor Semua</button><button id="importAllButton" type="button">Impor Semua</button><input id="importAllInput" type="file" accept="application/json,.json" hidden></div></div>
+
+      <div class="window-content">
+        <aside class="sidebar">
+          <section class="side-panel">
+            <h2>Bank Hub <span>⌃</span></h2>
+            <div><strong>Pilih bank belajar</strong><p>Semua koleksi tersedia dari satu tempat.</p></div>
+          </section>
+          <section class="side-panel">
+            <h2>Informasi <span>⌃</span></h2>
+            <div><p>Data setiap bank disimpan terpisah di browser Anda.</p></div>
+          </section>
+        </aside>
+
+        <section class="banks">
+          <div class="page-heading">
+            <div class="folder-icon" aria-hidden="true">★</div>
+            <div><p>Selamat datang</p><h1 id="pageTitle">Pilih bank yang ingin dibuka</h1></div>
+          </div>
+
+          <div class="bank-grid">
+            <a class="bank-card english" href="./englishbank/index.html" data-storage="englishBank.words.v1">
+              <span class="bank-icon">EN</span><span class="bank-info"><strong>English Bank</strong><small>Kosakata bahasa Inggris</small><em data-count>0 kosakata</em></span><span class="arrow">›</span>
+            </a>
+            <a class="bank-card mandarin" href="./mandarinbank/index.html" data-storage="mandarinBank.words.v1">
+              <span class="bank-icon">汉</span><span class="bank-info"><strong>Mandarin Bank</strong><small>Hanzi, Pinyin, dan arti</small><em data-count>0 kosakata</em></span><span class="arrow">›</span>
+            </a>
+            <a class="bank-card japan" href="./japanbank/index.html" data-storage="japanBank.words.v1">
+              <span class="bank-icon">日</span><span class="bank-info"><strong>Japan Bank</strong><small>Kanji, Kana, dan Romaji</small><em data-count>0 kosakata</em></span><span class="arrow">›</span>
+            </a>
+            <a class="bank-card indonesia" href="./indonesibank/index.html" data-storage="indonesiaBank.words.v1">
+              <span class="bank-icon">ID</span><span class="bank-info"><strong>Indonesia Bank</strong><small>Kosakata bahasa Indonesia</small><em data-count>0 kosakata</em></span><span class="arrow">›</span>
+            </a>
+            <a class="bank-card music" href="./musicbank/index.html" data-storage="musicBank.words.v1">
+              <span class="bank-icon">♪</span><span class="bank-info"><strong>Music Bank</strong><small>Istilah dan pengetahuan musik</small><em data-count>0 istilah</em></span><span class="arrow">›</span>
+            </a>
+            <a class="bank-card psychology" href="./psychologybank/index.html" data-storage="psychologyBank.words.v1">
+              <span class="bank-icon">Ψ</span><span class="bank-info"><strong>Psychology Bank</strong><small>Istilah dan konsep psikologi</small><em data-count>0 istilah</em></span><span class="arrow">›</span>
+            </a>
+            <a class="bank-card story" href="./storybank/index.html" data-storage="storyBank.stories.v1">
+              <span class="bank-icon">✎</span><span class="bank-info"><strong>Story Bank</strong><small>Koleksi cerita pribadi</small><em data-count>0 cerita</em></span><span class="arrow">›</span>
+            </a>
+            <a class="bank-card astronomy" href="./astronomybank/index.html" data-storage="astronomyBank.words.v1">
+              <span class="bank-icon">✦</span><span class="bank-info"><strong>Astronomy Bank</strong><small>Istilah dan konsep astronomi</small><em data-count>0 istilah</em></span><span class="arrow">›</span>
+            </a>
+            <a class="bank-card political" href="./politicalbank/index.html" data-storage="politicalBank.words.v1">
+              <span class="bank-icon">P</span><span class="bank-info"><strong>Political Bank</strong><small>Istilah dan konsep politik</small><em data-count>0 istilah</em></span><span class="arrow">›</span>
+            </a>
+            <a class="bank-card leader" href="./leaderbank/index.html" data-storage="leaderBank.words.v1">
+              <span class="bank-icon">L</span><span class="bank-info"><strong>Leader Bank</strong><small>Istilah dan konsep kepemimpinan</small><em data-count>0 istilah</em></span><span class="arrow">›</span>
+            </a>
+            <a class="bank-card computer-science" href="./computersciencebank/index.html" data-storage="computerScienceBank.words.v1">
+              <span class="bank-icon">CS</span><span class="bank-info"><strong>Computer Science Bank</strong><small>Istilah dan konsep ilmu komputer</small><em data-count>0 istilah</em></span><span class="arrow">›</span>
+            </a>
+            <a class="bank-card quote" href="./quotebank/index.html" data-storage="quoteBank.quotes.v1">
+              <span class="bank-icon">❝</span><span class="bank-info"><strong>Quote Bank</strong><small>Koleksi kutipan pilihan</small><em data-count>0 kutipan</em></span><span class="arrow">›</span>
+            </a>
+          </div>
+        </section>
+      </div>
+
+      <footer class="statusbar"><span>12 bank tersedia</span><span id="totalItems">0 total data</span></footer>
+    </section>
+  </main>
+
+  <dialog id="cloudDialog" class="cloud-dialog">
+    <form id="cloudForm">
+      <div class="cloud-title"><strong>Akun Supabase</strong><button type="button" data-close-cloud>×</button></div>
+      <p>Masuk untuk menyinkronkan semua bank tanpa menghapus data lokal.</p>
+      <label>Email<input id="cloudEmail" type="email" autocomplete="email" required></label>
+      <label>Password<input id="cloudPassword" type="password" minlength="6" autocomplete="current-password" required></label>
+      <small id="cloudError"></small>
+      <div class="cloud-actions"><button id="cloudLogoutButton" type="button">Keluar</button><span></span><button type="submit" value="signup">Daftar</button><button type="submit" value="signin">Masuk</button></div>
+    </form>
+  </dialog>
+
+  <footer class="taskbar">
+    <button class="start" type="button"><span>✦</span> start</button>
+    <div class="task-item"><span class="app-icon small">B</span> Bank Hub</div>
+    <time id="clock"></time>
+  </footer>
+  <script src="supabase-config.js?v=1"></script>
+  <script src="cloud-sync.js?v=1"></script>
+  <script src="system-language.js?v=1"></script>
+  <script src="script.js?v=12"></script>
+</body>
+</html>
