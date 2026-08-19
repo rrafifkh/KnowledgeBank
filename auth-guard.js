@@ -8,7 +8,8 @@
   try{session=JSON.parse(localStorage.getItem(SESSION_KEY)||'null');}catch{}
   const localAccess=sessionStorage.getItem(LOCAL_KEY)==='true';
   if(!session?.refresh_token&&!localAccess){
-    const loginUrl=new URL('login.html',document.currentScript.src);
+    const loginTarget=location.protocol==='file:'?'login.html':'login';
+    const loginUrl=new URL(loginTarget,document.currentScript.src);
     loginUrl.searchParams.set('next',location.href);
     location.replace(loginUrl.href);
   }
