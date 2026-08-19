@@ -57,6 +57,7 @@
   window.addEventListener('focus', refreshCounts);
   window.addEventListener('storage', refreshCounts);
   document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshCounts(); });
+  window.addEventListener('knowledgebank:cloudsynced', refreshCounts);
 
   if (location.protocol === 'file:') {
     window.addEventListener('message', event => {
